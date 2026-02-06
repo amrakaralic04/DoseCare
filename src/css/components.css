@@ -240,3 +240,144 @@
     border-radius: 12px;
     font-size: 0.9rem;
 }
+.auth-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    align-items: center;
+}
+
+.auth-hero {
+    padding: 28px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(228, 92, 154, 0.14), rgba(247, 230, 216, 0.55));
+    border: 1px solid rgba(228, 92, 154, 0.2);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.auth-hero__title {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.auth-hero__list {
+    display: grid;
+    gap: 12px;
+}
+
+.auth-hero__item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 12px 14px;
+    border-radius: 14px;
+}
+
+.auth-card {
+    max-width: none;
+    margin: 0;
+}
+
+.auth-card__header {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.auth-card__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.auth-card__footer {
+    margin-top: 18px;
+    font-size: 0.9rem;
+}
+
+.page-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 20px 24px;
+    border: 1px solid #e5e7eb;
+    box-shadow: var(--shadow-sm);
+}
+
+.page-header__text {
+    display: grid;
+    gap: 6px;
+}
+
+.page-header__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.page-header__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.quick-stat {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+    display: grid;
+    gap: 8px;
+}
+
+.quick-stat__label {
+    font-size: 0.9rem;
+    color: #6b7280;
+    font-weight: 600;
+}
+
+.quick-stat__value {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.form-split {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+}
+
+.divider {
+    height: 1px;
+    background: #f1d7e1;
+    margin: 12px 0;
+}
+
+.link-inline {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.link-inline:hover {
+    color: var(--color-primary-dark);
+}
+
+@media (max-width: 720px) {
+    .auth-hero {
+        order: 2;
+    }
+}

@@ -11,30 +11,38 @@ import { subscribeDevice, subscribeEvents } from "../api.js";
 import { createToast, formatTimestamp, formatStateChip, formatEventType } from "../ui.js";
 
 const renderDashboard = () => `
-  <section class="section">
-    <div class="section__header">
-      <h2 class="section__title">Dashboard</h2>
-      <span id="device-status" class="chip">Device nije povezan</span>
+ <section class="section page">
+    <div class="page-header">
+      <div class="page-header__text">
+        <p class="badge badge--soft">Dobrodošli nazad</p>
+        <h2 class="page-header__title">Kontrolna tabla uređaja</h2>
+        <p class="muted">Pratite stanje terapije, posljednje događaje i rad pametne kutije.</p>
+      </div>
+      <div class="page-header__actions">
+        <button class="btn btn--primary" type="button">Dodaj podsjetnik</button>
+        <button class="btn btn--ghost" type="button">Preuzmi izvještaj</button>
+        <span id="device-status" class="chip">Device nije povezan</span>
+      </div>
     </div>
-    <div class="card-grid">
-      <div class="card">
-        <h3>Status uređaja</h3>
-        <div class="card__value" id="device-online">--</div>
+     <div class="quick-stats">
+      <div class="quick-stat">
+        <span class="quick-stat__label">Status uređaja</span>
+        <div class="quick-stat__value" id="device-online">--</div>
         <p class="muted">Last seen: <span id="device-last-seen">--</span></p>
       </div>
-      <div class="card">
-        <h3>Trenutna težina</h3>
-        <div class="card__value" id="device-weight">-- g</div>
+      <div class="quick-stat">
+        <span class="quick-stat__label">Trenutna težina</span>
+        <div class="quick-stat__value" id="device-weight">-- g</div>
         <p class="muted">Threshold: <span id="device-threshold">-- g</span></p>
       </div>
-      <div class="card">
-        <h3>Stanje terapije</h3>
-        <div class="card__value" id="device-state">--</div>
+      <div class="quick-stat">
+        <span class="quick-stat__label">Stanje terapije</span>
+        <div class="quick-stat__value" id="device-state">--</div>
         <p class="muted">Današnja doza: <span id="dose-status">--</span></p>
       </div>
-      <div class="card">
-        <h3>Aktivnost</h3>
-        <div class="card__value" id="event-count">--</div>
+      <div class="quick-stat">
+        <span class="quick-stat__label">Aktivnost</span>
+        <div class="quick-stat__value" id="event-count">--</div>
         <p class="muted">Zadnjih 24h</p>
       </div>
     </div>
