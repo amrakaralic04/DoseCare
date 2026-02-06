@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "firebase": "^12.9.0",
+    "name": "DoseCare",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+      "dev": "live-server public --port=5173 --quiet",
+      "format": "echo 'No formatter configured'"
+    },
+    "devDependencies": {
+      "live-server": "^1.2.2"
+    }
+  }
+}

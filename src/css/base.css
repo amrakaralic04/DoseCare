@@ -1,0 +1,139 @@
+/* === Global reset === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* === Theme tokens (da WebStorm ne baca greške za var(--...)) === */
+:root {
+    --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+    --color-bg: #f6f7fb;
+    --color-text: #111827;
+    --color-text-muted: #6b7280;
+
+    --color-surface: #ffffff;
+    --color-surface-alt: #f9fafb;
+    --color-border: #e5e7eb;
+
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-7: 28px;
+
+    --font-size-sm: 0.9rem;
+    --font-size-lg: 1.1rem;
+    --font-size-xl: 1.35rem;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select {
+    font-family: inherit;
+}
+
+/* === Layout === */
+.app-shell {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+.topbar {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-5) var(--space-7);
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.brand__logo {
+    font-size: var(--font-size-xl);
+}
+
+.brand__title {
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+}
+
+.brand__subtitle {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.sidebar {
+    padding: var(--space-6) var(--space-5);
+    background: var(--color-surface-alt);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main {
+    padding: var(--space-6) var(--space-7);
+}
+
+.muted {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+/* === Responsive === */
+@media (max-width: 960px) {
+    .app-shell {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+    }
+
+    .main {
+        padding: var(--space-5);
+    }
+}
+
+@media (max-width: 720px) {
+    .topbar {
+        flex-direction: column;
+        gap: var(--space-3);
+        align-items: flex-start;
+    }
+
+    .sidebar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-4);
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "DoseCare",
+  "engines": {
+    "node": "18"
+  },
+  "main": "src/index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "firebase-admin": "^12.2.0",
+    "firebase-functions": "^5.0.1"
+  }
+}

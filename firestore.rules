@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isDeviceLinked(deviceId) {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid)/devices/$(deviceId));
+    }
+
+    match /users/{userId} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+
+      match /devices/{deviceId} {
+        allow read: if isSignedIn() && request.auth.uid == userId;
+        allow create, delete: if isSignedIn() && request.auth.uid == userId;
+      }
+    }
+
+    match /devices/{deviceId} {
+      allow read: if isSignedIn() && isDeviceLinked(deviceId);
+      allow write: if false;
+
+      match /events/{eventId} {
+        allow read: if isSignedIn() && isDeviceLinked(deviceId);
+        allow write: if false;
+      }
+
+      match /schedules/{scheduleId} {
+        allow read, write: if isSignedIn() && isDeviceLinked(deviceId);
+      }
+    }
+  }
+}
