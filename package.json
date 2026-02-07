@@ -1,18 +1,17 @@
 {
-  "name": "dosecre",
+  "name": "dosecare",
   "version": "1.0.0",
   "private": true,
-
+  "type": "module",
   "scripts": {
-    "dev": "live-server public --port=5173 --quiet",
-    "format": "echo \"No formatter configured\""
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
-
+  "devDependencies": {
+    "vite": "^6.0.0"
+  },
   "dependencies": {
     "firebase": "^12.9.0"
-  },
-
-  "devDependencies": {
-    "live-server": "^1.2.2"
   }
 }

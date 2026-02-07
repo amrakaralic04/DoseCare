@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DoseCare</title>
+
+    <!-- Elegantniji font za naslov (kao na tvojoj slici) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500&display=swap" rel="stylesheet">
+
+  <script type="module" crossorigin src="/assets/index-BfLEguQt.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-2KoBS0xY.css">
+</head>
+<body>
+
+<div class="page">
+    <header class="hero">
+        <div class="brand">
+            <div class="brand__name">DoseCare</div>
+            <div class="brand__sub">
+                <span class="line"></span>
+                Pametna kutija za lijekove
+                <span class="line"></span>
+            </div>
+        </div>
+    </header>
+
+    <main class="grid">
+        <!-- LEFT COLUMN -->
+        <section class="col">
+            <article class="card">
+                <header class="card__head">
+                    <div class="card__title">
+                        <span class="icon icon--alarm" aria-hidden="true"></span>
+                        Postavi novi alarm
+                    </div>
+                </header>
+
+                <div class="form">
+                    <label class="label">Vrijeme</label>
+                    <div class="input-wrap">
+                        <input id="alarmTime" class="input input--time" type="time" />
+                        <button type="button" class="time-btn" id="timeBtn" aria-label="Odaberi vrijeme"></button>
+                    </div>
+
+                    <label class="label">Naziv lijeka</label>
+                    <input id="medicineName" class="input" type="text" placeholder="Npr. Aspirin" maxlength="30" />
+
+                    <button id="addAlarmBtn" class="btn btn--primary">
+                        <span class="btn__icon">＋</span>
+                        Dodaj alarm
+                    </button>
+                </div>
+            </article>
+
+            <article class="card">
+                <header class="card__head">
+                    <div class="card__title">
+                        <span class="icon icon--list" aria-hidden="true"></span>
+                        Moji alarmi (<span id="alarmsCount">0</span>)
+                    </div>
+                </header>
+
+                <div id="alarmsEmpty" class="empty">
+                    Nema postavljenih alarma
+                </div>
+
+                <div id="alarmsList" class="alarms"></div>
+            </article>
+        </section>
+
+        <!-- RIGHT COLUMN -->
+        <section class="col">
+            <article class="card card--center">
+                <header class="card__head">
+                    <div class="card__title">
+                        <span class="icon icon--vibration" aria-hidden="true"></span>
+                        Kontrola vibracije
+                    </div>
+                </header>
+
+                <div class="vib">
+                    <div class="vib__circle vib__heart">
+                        ♥
+                    </div>
+
+
+
+                    <div class="vib__text">
+                        <div id="motorTitle" class="vib__title">Motor je neaktivan</div>
+                        <div id="motorSub" class="vib__sub">Nema aktivnih vibracija</div>
+                    </div>
+
+                    <div class="vib__actions">
+                        <button id="stopVibrationBtn" class="btn btn--vibration" disabled>
+                            Zaustavi vibraciju
+                        </button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card card--center">
+                <header class="card__head">
+                    <div class="card__title">
+                        <span class="icon icon--status" aria-hidden="true"></span>
+                        Izvještaj o statusu
+                    </div>
+                </header>
+
+                <div class="status">
+                    <div class="status__badge">
+                        <div class="badge__circle">
+                            <span id="pillIcon" aria-hidden="true">♥</span>
+                        </div>
+                        <div id="pillText" class="badge__text">Tableta u kutijici</div>
+                    </div>
+
+                    <div class="status__table">
+                        <div class="cell">
+                            <div class="cell__k">Load Cell</div>
+                            <div id="loadCellVal" class="cell__v">Čeka</div>
+                        </div>
+                        <div class="cell">
+                            <div class="cell__k">Status</div>
+                            <div id="pillStatusVal" class="cell__v">Čeka</div>
+                        </div>
+                    </div>
+
+                    <button id="checkStatusBtn" class="btn btn--primary">
+                        Provjeri status
+                    </button>
+                </div>
+            </article>
+        </section>
+    </main>
+</div>
+
+<!-- Toast container -->
+<div id="toastHost" class="toasts" aria-live="polite" aria-atomic="true"></div>
+
+</body>
+</html>
